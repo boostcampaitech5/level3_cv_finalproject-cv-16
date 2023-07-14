@@ -26,7 +26,7 @@ def producer(file):
     # GCS 인증
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key['GOOGLE_APPLICATION_CREDENTIALS']
 
-    bucket_name = 'image_path'
+    bucket_name = key["BUCKET_NAME"]
     # source_file_name = 'image'
     destination_blob_name = f'img_{file.id}.jpg'
 
@@ -52,5 +52,3 @@ def producer(file):
     message['id'] = str(file.id)
     message_str = json.dumps(message)
     q.put(message_str)
-
-# 여기서 받은 이미지를 바로어떻게 올리지?? 따로 저장한 파일을 불러오지 않고.

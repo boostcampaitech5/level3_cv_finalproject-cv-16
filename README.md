@@ -5,7 +5,8 @@
 3. key.json 파일 만들고 설정
 ```
 {
-    "GOOGLE_APPLICATION_CREDENTIALS" : "JSON 경로"
+    "GOOGLE_APPLICATION_CREDENTIALS" : "JSON 경로",
+    "BUCKET_NAME" : "자신이 설정한 BUCKET 이름",
     "REDIS_HOST":"REDIS IP주소",
     "REDIS_PASSWORD" : "REDIS API 키"
 }
