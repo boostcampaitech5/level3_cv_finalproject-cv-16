@@ -11,7 +11,13 @@
 }
 ```
 4. 터미널에서 streamlit 실행
+```
+streamlit run frontend.py   
+```
 5. 터미널에서 fastapi backend 실행
+```
+python __main__.py
+```
 
 ### 구현 내용
 - 프론트에서 이미지 받아서 gcs 에 crop 이미지 저장하고 redis message queue에 이미지 고유 id push 까지 구현
