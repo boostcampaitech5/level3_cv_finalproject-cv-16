@@ -40,8 +40,6 @@ if img_file:
     st.write("Preview")
     _ = cropped_img.thumbnail((512, 512))
     st.image(cropped_img)
-    print(cropped_img.size)
-    # print(type(cropped_img))
 
     # byte 로 변환
     buffer = io.BytesIO()
@@ -55,8 +53,6 @@ if img_file:
     email = form.text_input('결과를 받을 이메일을 입력해주세요.')
     submit = form.form_submit_button('제출')
 
-    print(type(email))
-    # print(type(buffer.decode()))
     if submit:
 
         files = {"email": email, "image": buffer.decode()}

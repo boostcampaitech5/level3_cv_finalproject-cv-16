@@ -19,9 +19,5 @@ class resized_img(BaseModel):
 
 @app.post("/submit", description="image submit button")
 def submit(file: resized_img) -> bool:
-    print(file.id, file.email, type(file.image))
     producer(file)
     return True
-
-# ToDo
-# 이미지를 전체이미지도 알아야하고 crop 된것도 보내야하는거아닌가
