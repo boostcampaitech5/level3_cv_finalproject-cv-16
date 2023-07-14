@@ -27,7 +27,6 @@ def producer(file):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key['GOOGLE_APPLICATION_CREDENTIALS']
 
     bucket_name = key["BUCKET_NAME"]
-    # source_file_name = 'image'
     destination_blob_name = f'img_{file.id}.jpg'
 
     storage_client = storage.Client()
