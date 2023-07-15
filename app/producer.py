@@ -50,5 +50,6 @@ def producer(file):
     message = dict()
     message['id'] = str(file.id)
     message['email'] = file.email
+    message['bbox'] = file.bbox
     message_str = json.dumps(message)
     q.put(message_str)

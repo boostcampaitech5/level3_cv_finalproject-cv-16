@@ -15,6 +15,7 @@ class resized_img(BaseModel):
     # user_name - > 아이디 로그인 구현되면
     email: str
     image: bytes
+    bbox: dict
 
 
 @app.post("/submit", description="image submit button")

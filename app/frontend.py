@@ -33,9 +33,13 @@ if img_file:
     img = Image.open(img_file)
     if not realtime_update:
         st.write("Double click to save crop")
-    # Get a cropped image from the frontend
-    cropped_img = st_cropper(img, realtime_update=realtime_update, box_color=box_color,
-                             aspect_ratio=aspect_ratio, box_algorithm=box_algorithm)
+    # Get a bbox coordinates from the frontend
+    rect = st_cropper(img, return_type="box", realtime_update=realtime_update, box_color=box_color,
+                      aspect_ratio=aspect_ratio, box_algorithm=box_algorithm)
+
+    # bbox 좌표로부터 image crop
+    cropped_img = img.crop(
+        (rect['left'], rect['top'], rect['width'] + rect['left'], rect['height'] + rect['top']))
 
     # Manipulate cropped image at will
     st.write("Preview")
@@ -59,7 +63,8 @@ if img_file:
 
     if submit:
         if re.match(reg, email):
-            files = {"email": email, "image": buffer.decode()}
+            files = {"email": email, "image": buffer.decode(),
+                     "bbox": rect}
             response = requests.post(
                 "http://127.0.0.1:8001/submit", data=json.dumps(files))
             st.write(f'10분내에 {email}로 결과가 전송됩니다.')
