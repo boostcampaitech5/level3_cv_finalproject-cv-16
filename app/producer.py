@@ -27,7 +27,7 @@ def producer(file):
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key['GOOGLE_APPLICATION_CREDENTIALS']
 
     bucket_name = key["BUCKET_NAME"]
-    destination_blob_name = f'img_{file.id}.jpg'
+    destination_blob_name = f'{file.id}.jpg'
 
     storage_client = storage.Client()
     bucket = storage_client.bucket(bucket_name)
@@ -49,5 +49,6 @@ def producer(file):
 
     message = dict()
     message['id'] = str(file.id)
+    message['email'] = file.email
     message_str = json.dumps(message)
     q.put(message_str)
