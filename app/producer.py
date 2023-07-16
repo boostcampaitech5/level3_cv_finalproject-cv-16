@@ -20,9 +20,6 @@ def producer(file):
     q = RedisQueue('my-tae', host=key['REDIS_HOST'],
                    port=14914, password=key['REDIS_PASSWORD'])
 
-    # encoded_img = b64encode()
-    # compressed_img = zlib.compress(encoded_img, 9)
-
     # GCS 인증
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key['GOOGLE_APPLICATION_CREDENTIALS']
 
@@ -33,20 +30,13 @@ def producer(file):
     bucket = storage_client.bucket(bucket_name)
     blob = bucket.blob(destination_blob_name)
 
-    # encode image 복구
-    decode_buffer = b64decode(file.image)
-    image_buffer = io.BytesIO(decode_buffer)
-    image = Image.open(image_buffer)
+    # 이미지 압축
+    compressed_img = zlib.compress(file.image, 9)
 
-    # 이미지 저장 -> GCS 버킷에 저장하기 위해
-    image.save(f'{file.id}.jpg')
-    source_path = f'{file.id}.jpg'
+    # GCS에 압축 이미지 업로드
+    blob.upload_from_string(compressed_img)
 
-    blob.upload_from_filename(source_path)
-
-    # 이미지 삭제 -> 추후 주기적으로 삭제하는식으로 바꿔도 될듯
-    os.remove(f'{file.id}.jpg')
-
+    # Message Queue에 전달할 message setting
     message = dict()
     message['id'] = str(file.id)
     message['email'] = file.email

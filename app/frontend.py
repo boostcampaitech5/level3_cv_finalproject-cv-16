@@ -48,7 +48,7 @@ if img_file:
 
     # byte 로 변환
     buffer = io.BytesIO()
-    cropped_img.save(buffer, format='JPEG')
+    img.save(buffer, format='JPEG')
     buffer = buffer.getvalue()
     buffer = base64.b64encode(buffer)
 
