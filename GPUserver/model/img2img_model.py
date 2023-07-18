@@ -27,8 +27,10 @@ class StableDiffusionImg2Img():
         """
         image: 객체 이외의 배경을 제거한 이미지
         """
-        
-        result = self.pipe(prompt = prompt,image=image,num_inference_steps=num_inference_steps, strength=strength).images[0]
+        while True:
+            result = self.pipe(prompt = prompt,image=image,num_inference_steps=num_inference_steps, strength=strength).images[0]
+            if np.array(result).mean():
+                break
         return result
 
     def load_Lora(self,lora_path:str):

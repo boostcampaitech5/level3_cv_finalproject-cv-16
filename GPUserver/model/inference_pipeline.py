@@ -45,7 +45,9 @@ class Img2ImgWithBboxPipeline():
         """
         #2-1. 위에서 추출된 마스크 이외의 배경을 제거한 뒤, 이미지 변환
         segment_img = image_segmentation(image,mask)
+
         target_image = self.image_translation.inpaint(prompt=prompt,image=segment_img,num_inference_steps=inference_steps,strength=strength)
+   
         #3. 이미지에서 1번에서 추출한 객체를 inpaint를 사용하여 자연스럽게 제거
         # background = self.inpaintor.pipe(image=image,input_bbox=None,prompt="",inference_steps=100,mask=mask)
 

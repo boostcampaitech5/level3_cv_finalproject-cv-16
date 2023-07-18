@@ -17,12 +17,12 @@ from model.inference_pipeline import Img2ImgWithBboxPipeline
 if __name__ == "__main__":
 
     # key 파일 열기
-    with open("../app/key.json") as f:
+    with open("key.json") as f:
         key = json.load(f)
 
     # Redis Message Queue 접속
     q = RedisQueue('my-tae', host=key["REDIS_HOST"],
-                   port=14914, password=key["REIDS_PASSWORD"])
+                   port=14914, password=key["REDIS_PASSWORD"])
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key["GOOGLE_APPLICATION_CREDENTIALS"]
     model = Img2ImgWithBboxPipeline()
     # message get
@@ -65,6 +65,8 @@ if __name__ == "__main__":
 
         # ------------------------model inference ----------------------------
         result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt)
+        result.save(f"inference_{id}.jpg")
+        id = f"inference_{id}"
         # ------------------------model inference ----------------------------
 
         send_email(email, id)
