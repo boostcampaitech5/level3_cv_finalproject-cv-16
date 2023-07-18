@@ -7,7 +7,7 @@ import json
 import io
 import re
 
-st.set_option('deprecation.showfileUploaderEncoding', False)
+st.set_option('최애의 AI', False)
 
 # Upload an image and set some options for demo purposes
 st.header("adsfdsafdsaf ")
