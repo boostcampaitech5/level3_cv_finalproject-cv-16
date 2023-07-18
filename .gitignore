@@ -2,3 +2,8 @@ __pycache__/
 key.json
 GPUserver/model/diffusers
 GPUserver/model/weights
+*.json
+venv/
+*.out
+.ipynb_checkpoints/
+

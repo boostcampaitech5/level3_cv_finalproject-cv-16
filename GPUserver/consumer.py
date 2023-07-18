@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     # Redis Message Queue 접속
     q = RedisQueue('my-tae', host=key["REDIS_HOST"],
-                   port=11129, password=key["REDIS_PASSWORD"])
+                   port=14914, password=key["REIDS_PASSWORD"])
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key["GOOGLE_APPLICATION_CREDENTIALS"]
     model = Img2ImgWithBboxPipeline()
     # message get
