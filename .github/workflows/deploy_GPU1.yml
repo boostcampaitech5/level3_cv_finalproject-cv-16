@@ -22,7 +22,7 @@ jobs:
         host: ${{secrets.HOST1}}
         username: ${{secrets.USERNAME1}}
         key: ${{secrets.SSH_KEY1}}
-        port: 2222
+        port: 2223
         script: |
-          cd ~/${{github.event.repository.name}}/cicd
+          cd /opt/ml/level3_cv_finalproject-cv-16/cicd
           sh deploy_ssh.sh

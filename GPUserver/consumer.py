@@ -4,12 +4,15 @@ import time as pytime
 
 import zlib
 from base64 import b64encode, b64decode
-
+import numpy as np
 from redisqueue import RedisQueue
 from google.cloud import storage
 from PIL import Image
 from io import BytesIO
 from send_email import send_email
+from model.inference_pipeline import Img2ImgWithBboxPipeline
+
+
 
 if __name__ == "__main__":
 
@@ -21,7 +24,7 @@ if __name__ == "__main__":
     q = RedisQueue('my-tae', host=key["REDIS_HOST"],
                    port=14914, password=key["REDIS_PASSWORD"])
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key["GOOGLE_APPLICATION_CREDENTIALS"]
-
+    model = Img2ImgWithBboxPipeline()
     # message get
     while(True):
         msg = q.get(isBlocking=True)  # 큐가 비어있을 때 대기
@@ -51,16 +54,19 @@ if __name__ == "__main__":
         img = Image.open(BytesIO(decoded_data))
 
         # bbox 기반 image crop
-        cropped_img = img.crop((bbox['left'], bbox['top'], bbox['width'] +
-                               bbox['left'], bbox['height'] + bbox['top'])).resize((512, 512))
-
+        x1,y1,x2,y2 = bbox['left'], bbox['top'], bbox['width'] +bbox['left'], bbox['height'] + bbox['top']
+        cropped_img = img.crop((x1,y1,x2,y2)).resize((512, 512))
+        input_bbox = np.array([x1,y1,x2,y2])
+        prompt = "anime"
         # 원본 이미지 저장
         img.save(f"{id}.jpg")
         # crop 이미지 저장
         cropped_img.save(f"crop_{id}.jpg")
 
         # ------------------------model inference ----------------------------
-        # model(img, cropped_img)
+        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt)
+        result.save(f"inference_{id}.jpg")
+        id = f"inference_{id}"
         # ------------------------model inference ----------------------------
 
         send_email(email, id)
