@@ -1,2 +1,4 @@
 __pycache__/
 key.json
+venv/
+nohup.out
