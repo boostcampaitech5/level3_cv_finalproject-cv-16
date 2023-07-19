@@ -3,7 +3,7 @@ import json
 import zlib
 from base64 import b64encode, b64decode
 
-from GPUserver.redisqueue import RedisQueue
+from redisqueue import RedisQueue
 from google.cloud import storage
 
 import io
@@ -41,5 +41,6 @@ def producer(file):
     message['id'] = str(file.id)
     message['email'] = file.email
     message['bbox'] = file.bbox
+    message['ver'] = file.ver
     message_str = json.dumps(message)
     q.put(message_str)

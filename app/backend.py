@@ -16,6 +16,7 @@ class resized_img(BaseModel):
     email: str
     image: bytes
     bbox: dict
+    ver: str
 
 
 @app.post("/submit", description="image submit button")

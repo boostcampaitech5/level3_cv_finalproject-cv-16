@@ -52,10 +52,11 @@ if img_file:
     buffer = buffer.getvalue()
     buffer = base64.b64encode(buffer)
 
-    # submit button
-    # Using the "with" syntax
+    # select character
+    ver = ['최애의 아이','하울','명탐정 코난', '노진구']
 
     form = st.form(key='email')
+    selected = form.selectbox('그림체를 선택하세요', ver)
     email = form.text_input('결과를 받을 이메일을 입력해주세요.')
     submit = form.form_submit_button('제출')
 
@@ -64,7 +65,7 @@ if img_file:
     if submit:
         if re.match(reg, email):
             files = {"email": email, "image": buffer.decode(),
-                     "bbox": rect}
+                     "bbox": rect, "ver": selected}
             response = requests.post(
                 "http://127.0.0.1:8001/submit", data=json.dumps(files))
             st.write(f'10분내에 {email}로 결과가 전송됩니다.')

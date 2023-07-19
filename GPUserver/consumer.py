@@ -36,6 +36,7 @@ if __name__ == "__main__":
         id = msg_json['id']
         email = msg_json['email']
         bbox = msg_json['bbox']
+        ver = msg_json['ver']
 
         bucket_name = key["BUCKET_NAME"]    # 서비스 계정 생성한 bucket 이름 입력
         source_blob_name = f'{id}.jpg'    # GCP에 저장되어 있는 파일 명
