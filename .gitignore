@@ -5,9 +5,11 @@ GPUserver/model/weights
 
 GPUserver/model/*.jpeg
 *.json
+
 venv/
 *.out
-.ipynb_checkpoints/
+.ipynb_checkpoints
 GPUserver/*.jpg
 pipeline_test.ipynb
 *.jpeg
+*.zip

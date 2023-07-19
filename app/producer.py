@@ -2,13 +2,13 @@ import json
 
 import zlib
 from base64 import b64encode, b64decode
+
 from google.cloud import storage
 
 import sys
 import io
 import os
 from PIL import Image
-
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
 from GPUserver.redisqueue import RedisQueue
 

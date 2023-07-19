@@ -29,6 +29,7 @@ class StableDiffusionImg2Img():
         """
         while True:
             result = self.pipe(prompt = prompt,image=image,num_inference_steps=num_inference_steps, strength=strength).images[0]
+            # 만약 result의 모든 픽셀이 검정 (0,0,0)이라면 inference 반복 
             if np.array(result).mean():
                 break
         return result
