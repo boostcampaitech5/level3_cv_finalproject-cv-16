@@ -26,7 +26,6 @@ blinker==1.4
 cachelib==0.10.2
 cachetools==4.2.4
 cattrs==1.5.0
-
 cffi==1.15.1
 charset-normalizer==2.0.7
 click==7.1.2
@@ -158,8 +157,6 @@ pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
 pytzdata==2020.1
 PyWavelets==1.1.1
-pywin32==302
-pywinpty==1.1.5
 PyYAML==6.0
 pyzmq==22.3.0
 qudida==0.0.4
