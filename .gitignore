@@ -12,3 +12,4 @@ venv/
 GPUserver/*.jpg
 pipeline_test.ipynb
 *.jpeg
+*.zip

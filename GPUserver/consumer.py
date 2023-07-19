@@ -62,14 +62,15 @@ if __name__ == "__main__":
         input_bbox = np.array([x1,y1,x2,y2])
         
         # ------------------------model inference ----------------------------
-        #Loading Lora
+        # Loading Lora
 
         character,prompt = Lora[ver]["character"],Lora[ver]["prompt"]
-        lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint"
+        lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint-400"
         model.load_lora(lora_path)
         result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt)
-        # result.save(f"inference_{id}.jpg")
-        # id = f"inference_{id}"
+        
+        result.save(f"inference.jpg")
+        id = f"inference"
         # ------------------------model inference ----------------------------
 
-        send_email(email, result)
+        send_email(email,id)

@@ -6,7 +6,7 @@ from email.mime.image import MIMEImage
 import json
 
 
-def send_email(email, id):
+def send_email(email,id):
     with open("key.json") as f:
         key = json.load(f)
     # smpt 서버와 연결
@@ -43,8 +43,10 @@ def send_email(email, id):
         img.add_header('Content-Disposition',
                        'attachment', filename=image_name)
         msg.attach(img)
-
-    # 메일 전송
+    # img = bytearray(result)
+    # img.add_header('Content-Disposition', 'attachment', filename= f"output_{id}.jpg")
+    # msg.attach(img)
+    # # 메일 전송
     smtp.sendmail(my_account, to_mail, msg.as_string())
 
     # smtp 서버 연결 해제
