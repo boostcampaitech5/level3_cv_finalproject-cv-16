@@ -3,13 +3,16 @@ import json
 import zlib
 from base64 import b64encode, b64decode
 
-from redisqueue import RedisQueue
 from google.cloud import storage
 
 import io
 import os
 from PIL import Image
 
+
+import sys
+sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
+from GPUserver.redisqueue import RedisQueue
 
 def producer(file):
 

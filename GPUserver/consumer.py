@@ -24,6 +24,8 @@ if __name__ == "__main__":
     q = RedisQueue('my-tae', host=key["REDIS_HOST"],
                    port=14914, password=key["REDIS_PASSWORD"])
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key["GOOGLE_APPLICATION_CREDENTIALS"]
+    with open("model/weights/diffusion/Lora/prompt.json") as Lora:
+        Lora= json.load(Lora)
     model = Img2ImgWithBboxPipeline()
     # message get
     while(True):
@@ -58,16 +60,16 @@ if __name__ == "__main__":
         x1,y1,x2,y2 = bbox['left'], bbox['top'], bbox['width'] +bbox['left'], bbox['height'] + bbox['top']
         cropped_img = img.crop((x1,y1,x2,y2)).resize((512, 512))
         input_bbox = np.array([x1,y1,x2,y2])
-        prompt = "anime"
-        # 원본 이미지 저장
-        img.save(f"{id}.jpg")
-        # crop 이미지 저장
-        cropped_img.save(f"crop_{id}.jpg")
-
+        
         # ------------------------model inference ----------------------------
+        #Loading Lora
+
+        character,prompt = Lora[ver]["character"],Lora[ver]["prompt"]
+        lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint"
+        model.load_lora(lora_path)
         result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt)
-        result.save(f"inference_{id}.jpg")
-        id = f"inference_{id}"
+        # result.save(f"inference_{id}.jpg")
+        # id = f"inference_{id}"
         # ------------------------model inference ----------------------------
 
-        send_email(email, id)
+        send_email(email, result)
