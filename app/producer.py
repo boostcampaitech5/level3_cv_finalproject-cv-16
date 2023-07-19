@@ -3,7 +3,7 @@ import json
 import zlib
 from base64 import b64encode, b64decode
 
-from redisqueue import RedisQueue
+from GPUserver.redisqueue import RedisQueue
 from google.cloud import storage
 
 import io
