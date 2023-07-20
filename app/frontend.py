@@ -28,9 +28,21 @@ def box_algorithm(img_file: Image, aspect_ratio: tuple = None) -> dict:
     width = 512
     return {'left': 0, 'top': 0, 'width': 512, 'height': 512}
 
+def check_size(img):
+    w,h = img.size
+    tmp = w if w > h else h
+
+    if(tmp > 1500):
+        ratio = 1500 / tmp
+        img = img.resize((int(w * ratio), int(h * ratio)))
+    return img
 
 if img_file:
     img = Image.open(img_file)
+
+    #이미지 size 가 1500 넘어갈 시 비율에 맞게 resize
+    img = check_size(img)
+
     if not realtime_update:
         st.write("Double click to save crop")
     # Get a bbox coordinates from the frontend
