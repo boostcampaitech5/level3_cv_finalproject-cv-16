@@ -18,16 +18,16 @@ bleach==4.1.0
 blinker==1.4
 boto3==1.19.12
 botocore==1.22.12
-Brotli @ file:///home/conda/feedstock_root/build_artifacts/brotli-split_1648883617327/work
+Brotli==1.0.9
 cachetools==4.2.4
 Cerberus==1.3.4
 certifi==2021.10.8
-cffi @ file:///tmp/abs_98z5h56wf8/croots/recipe/cffi_1659598650955/work
+cffi==1.15.1
 chardet==4.0.0
 charset-normalizer==2.0.7
 click==7.1.2
 cmake==3.26.4
-colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+colorama==0.4.6
 configparser==5.1.0
 contextlib2==21.6.0
 cycler==0.11.0
@@ -41,8 +41,8 @@ entrypoints==0.3
 filelock==3.12.2
 Flask==2.0.2
 frozenlist==1.2.0
-fsspec @ file:///home/conda/feedstock_root/build_artifacts/fsspec_1686342280219/work
-future @ file:///home/conda/feedstock_root/build_artifacts/future_1673596611778/work
+fsspec==2023.6.0
+future==0.18.3
 gitdb==4.0.9
 GitPython==3.1.20
 google-api-core==2.11.1
@@ -56,7 +56,7 @@ grpcio==1.41.1
 gunicorn==20.1.0
 huggingface-hub==0.16.4
 humanfriendly==10.0
-idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1663625384323/work
+idna==3.4
 imageio==2.10.3
 importlib-metadata==6.8.0
 importlib-resources==6.0.0
@@ -75,7 +75,7 @@ jupyter-core==4.9.1
 jupyterlab-pygments==0.1.2
 jupyterlab-widgets==1.0.2
 kiwisolver==1.3.1
-lightning-utilities @ file:///home/conda/feedstock_root/build_artifacts/lightning-utilities_1688117204588/work
+lightning-utilities==0.9.0
 lit==16.0.6
 Mako==1.1.5
 MarkupSafe==2.0.1
@@ -110,6 +110,7 @@ parso==0.8.2
 pexpect==4.8.0
 pickleshare==0.7.5
 Pillow==8.4.0
+pip==23.1.2
 prometheus-client==0.12.0
 prompt-toolkit==3.0.22
 protobuf==3.19.1
@@ -118,16 +119,16 @@ ptyprocess==0.7.0
 pyarrow==6.0.0
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
-pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1636257122734/work
+pycparser==2.21
 pydeck==0.6.2
 Pygments==2.10.0
 Pympler==0.9
 pyparsing==2.4.7
 pyrsistent==0.18.0
-PySocks @ file:///home/conda/feedstock_root/build_artifacts/pysocks_1661604839144/work
+PySocks==1.7.1
 python-dateutil==2.8.2
 python-json-logger==2.0.2
-pytorch-lightning @ file:///home/conda/feedstock_root/build_artifacts/pytorch-lightning_1687682050598/work
+pytorch-lightning==2.0.4
 pytz==2021.3
 pytz-deprecation-shim==0.1.0.post0
 PyWavelets==1.1.1
@@ -148,6 +149,7 @@ scikit-learn==0.24.2
 scipy==1.5.4
 segment-anything==1.0
 Send2Trash==1.8.0
+setuptools==67.8.0
 simple-di==0.1.2
 six==1.16.0
 smmap==5.0.0
@@ -164,14 +166,14 @@ tokenizers==0.13.3
 toml==0.10.2
 toolz==0.11.2
 torch==1.10.0
-torchmetrics @ file:///home/conda/feedstock_root/build_artifacts/torchmetrics_1678720682204/work
+torchmetrics==0.11.4
 torchvision==0.11.1
 tornado==6.1
-tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1677948868469/work
+tqdm==4.65.0
 traitlets==4.3.3
 transformers==4.31.0
 triton==2.0.0
-typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1688315532570/work
+typing_extensions==4.7.1
 tzdata==2023.3
 tzlocal==4.1
 urllib3==1.25.11
@@ -181,6 +183,7 @@ wcwidth==0.2.5
 webencodings==0.5.1
 websocket-client==1.2.1
 Werkzeug==2.0.2
+wheel==0.38.4
 widgetsnbextension==3.5.2
 yarl==1.7.2
 zipp==3.6.0
