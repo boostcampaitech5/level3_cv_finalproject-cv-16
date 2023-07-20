@@ -22,13 +22,13 @@ class StableDiffusionImg2Img():
         self.pipe.to(DEVICE)
         self.pipe.safety_checker = None
         self.pipe.requires_safety_checker = False
-    def inpaint(self,prompt:str,image:PIL.Image,num_inference_steps:str=100,strength:float=0.6)->PIL.Image:
+    def inpaint(self,prompt:str,negative_prompt:str,image:PIL.Image,num_inference_steps:str=100,strength:float=0.6)->PIL.Image:
         
         """
         image: 객체 이외의 배경을 제거한 이미지
         """
         while True:
-            result = self.pipe(prompt = prompt,image=image,num_inference_steps=num_inference_steps, strength=strength).images[0]
+            result = self.pipe(prompt = prompt,negative_prompt=negative_prompt,image=image,num_inference_steps=num_inference_steps, strength=strength).images[0]
             # 만약 result의 모든 픽셀이 검정 (0,0,0)이라면 inference 반복 
             if np.array(result).mean():
                 break

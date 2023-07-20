@@ -10,7 +10,7 @@ from google.cloud import storage
 from PIL import Image
 from io import BytesIO
 from send_email import send_email
-from model.inference_pipeline import Img2ImgWithBboxPipeline
+from model.inference_pipeline_with_Inpaint_Anything import Img2ImgWithBboxPipeline
 
 # import bentoml
 # from transform_anime import Transform_Anime
@@ -66,10 +66,11 @@ if __name__ == "__main__":
         # ------------------------model inference ----------------------------
         # Loading Lora
 
-        character,prompt = Lora[ver]["character"],Lora[ver]["prompt"]
-        lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint-400"
+        character,prompt,negative_prompt = Lora[ver]["character"],Lora[ver]["prompt"],Lora["negative_prompt"]
+        lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint"
         model.load_lora(lora_path)
-        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt)
+        
+        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt,negative_prompt = negative_prompt,inference_steps=100,strength=0.7)
         
         # Bentoml
         # model 변경점은 이 코드 위에서 수정해주세요
