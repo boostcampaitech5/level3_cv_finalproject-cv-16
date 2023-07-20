@@ -12,7 +12,8 @@ from io import BytesIO
 from send_email import send_email
 from model.inference_pipeline import Img2ImgWithBboxPipeline
 
-
+import bentoml
+from transform_anime import Transform_Anime
 
 if __name__ == "__main__":
 
@@ -27,6 +28,7 @@ if __name__ == "__main__":
     with open("model/weights/diffusion/Lora/prompt.json") as Lora:
         Lora= json.load(Lora)
     model = Img2ImgWithBboxPipeline()
+    
     # message get
     while(True):
         msg = q.get(isBlocking=True)  # 큐가 비어있을 때 대기
@@ -67,10 +69,13 @@ if __name__ == "__main__":
         character,prompt = Lora[ver]["character"],Lora[ver]["prompt"]
         lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint-400"
         model.load_lora(lora_path)
-        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt)
         
-        result.save(f"inference.jpg")
-        id = f"inference"
+        # Bentoml
+        # model 변경점은 이 코드 위에서 수정해주세요
+        bento_service = Transform_Anime()
+        bento_service.pack('model', model)
+        
+        result = bento_service.transform(image=img,input_bbox=input_bbox,prompt=prompt)
         # ------------------------model inference ----------------------------
 
-        send_email(email,id)
+        send_email(email, result)

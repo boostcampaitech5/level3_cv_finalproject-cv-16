@@ -4,9 +4,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 import json
+import io
 
-
-def send_email(email,id):
+def send_email(email,result):
     with open("key.json") as f:
         key = json.load(f)
     # smpt 서버와 연결
@@ -37,15 +37,13 @@ def send_email(email,id):
     msg.attach(content_part)
 
     # 이미지 파일 추가
-    image_name = f"{id}.jpg"
-    with open(image_name, 'rb') as file:
-        img = MIMEImage(file.read())
-        img.add_header('Content-Disposition',
-                       'attachment', filename=image_name)
-        msg.attach(img)
-    # img = bytearray(result)
-    # img.add_header('Content-Disposition', 'attachment', filename= f"output_{id}.jpg")
-    # msg.attach(img)
+    buf = io.BytesIO()
+    result.save(buf, format='JPEG')
+    image = buf.getvalue()
+    image = MIMEImage(image)
+    image.add_header('Content-Disposition', 'attachment', filename='transformed_image.jpg')
+    msg.attach(image)
+    
     # # 메일 전송
     smtp.sendmail(my_account, to_mail, msg.as_string())
 
