@@ -5,6 +5,8 @@ GPUserver/model/weights
 
 GPUserver/model/*.jpeg
 *.json
+GPUserver/model/Inpaint_Anything
+GPUserver/model/*.jpg
 
 venv/
 *.out
