@@ -75,7 +75,7 @@ if __name__ == "__main__":
         bento_service = Transform_Anime()
         bento_service.pack('model', model)
         
-        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt)
+        result = bento_service.transform(image=img,input_bbox=input_bbox,prompt=prompt)
         # ------------------------model inference ----------------------------
 
         send_email(email, result)
