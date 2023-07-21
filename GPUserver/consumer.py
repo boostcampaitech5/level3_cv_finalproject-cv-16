@@ -70,7 +70,7 @@ if __name__ == "__main__":
         lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint"
         model.load_lora(lora_path)
         
-        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt,negative_prompt = negative_prompt,inference_steps=100,strength=0.7)
+        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt,negative_prompt = negative_prompt,inference_steps=140,strength=0.55)
         
         # Bentoml
         # model 변경점은 이 코드 위에서 수정해주세요
