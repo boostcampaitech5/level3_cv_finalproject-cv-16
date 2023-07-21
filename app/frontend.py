@@ -32,8 +32,8 @@ def check_size(img):
     w,h = img.size
     tmp = w if w > h else h
 
-    if(tmp > 1500):
-        ratio = 1500 / tmp
+    if(tmp > 1024):
+        ratio = 1024 / tmp
         img = img.resize((int(w * ratio), int(h * ratio)))
     return img
 
