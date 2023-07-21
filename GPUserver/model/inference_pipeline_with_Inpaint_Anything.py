@@ -1,30 +1,14 @@
-from model.inpaint_model import  StableDiffusionInpaint
 from model.img2img_model import StableDiffusionImg2Img
 from model.segment_anything_model import SAM
 from PIL import Image
 import numpy as np 
-from typing import Optional
 from model.utils import image_resize,image_segmentation,combine_image
+from model.Inpaint_Anything.lama_inpaint import inpaint_img_with_lama
+from model.Inpaint_Anything.utils import save_array_to_img, dilate_mask
 
-class inpaint_with_bbox_Pipeline():
 
-    def __init__(self):
-        self.inpaintor = StableDiffusionInpaint()
-        # self.inpaintor.load_lora()
-
-        self.segmentation = SAM()
-    
-
-    
-    def pipe(self,image:Image.Image,input_bbox:np.array,prompt:str,inference_steps:int=200,mask:Optional[Image.Image]=None):
-        
-        #만약 파라미터에 mask 객체가 없다면 mask를 만듦
-        if not mask:
-            mask = self.segmentation.make_mask_with_bbox(image,input_bbox)
-        result = self.inpaintor.inpaint(image,mask,prompt,inference_steps)
-
-        return result
-
+LAMA_CONFIG = 'model/Inpaint_Anything/lama/configs/prediction/default.yaml'
+LAMA_MODEL = 'model/Inpaint_Anything/pretrained_models/big-lama'
 check_point_dump_path = "/opt/ml/level3_cv_finalproject-cv-16/GPUserver/model/weights/dump_paths/corneos7th_heaven_mix_v2-anythingv3"
 class Img2ImgWithBboxPipeline():
 
@@ -32,11 +16,9 @@ class Img2ImgWithBboxPipeline():
 
         self.image_translation = StableDiffusionImg2Img(check_point = check_point)
         self.segmentation = SAM()
-        #객체를 제거해줄 inpainting 모델
-        self.inpaintor = inpaint_with_bbox_Pipeline()
     def load_lora(self,check_point:str):
         self.image_translation.load_Lora(check_point)
-    def pipe(self,image:Image.Image,input_bbox:np.array,prompt:str,inference_steps:int=100,strength:float=0.6)->Image.Image:
+    def pipe(self,image:Image.Image,input_bbox:np.array,prompt:str,negative_prompt:str,inference_steps:int=100,strength:float=0.6)->Image.Image:
         #1.입력 이미지에서 마스크 추출
         mask = self.segmentation.make_mask_with_bbox(image,input_bbox)
         """
@@ -46,13 +28,9 @@ class Img2ImgWithBboxPipeline():
         #2-1. 위에서 추출된 마스크 이외의 배경을 제거한 뒤, 이미지 변환
         segment_img = image_segmentation(image,mask)
 
-        target_image = self.image_translation.inpaint(prompt=prompt,image=segment_img,num_inference_steps=inference_steps,strength=strength)
+        target_image = self.image_translation.inpaint(prompt=prompt,negative_prompt=negative_prompt,image=segment_img,num_inference_steps=inference_steps,strength=strength)
    
-        #3. 이미지에서 1번에서 추출한 객체를 inpaint를 사용하여 자연스럽게 제거
-        # background = self.inpaintor.pipe(image=image,input_bbox=None,prompt="",inference_steps=100,mask=mask)
-
-        background = image 
-        #3.1, 3번의 결과로 512,512사이즈의 배경이미지가 반환되기 때문에 원본 사이즈에 맞춰 늘려주는 과정
+        background = self.outpaint(image,mask,15)
         background = image_resize(image=target_image,background=background)
 
         target_mask = self.segment_image(image = target_image,input_bbox=input_bbox)
@@ -62,8 +40,14 @@ class Img2ImgWithBboxPipeline():
         result = combine_image(background=target_background,image=target_image)
         return result
     
+    def outpaint(self,image:Image.Image,mask:Image.Image,dilate_kernel_size:int) -> Image.Image:
+        mask = np.array(mask)
+        mask = dilate_mask(np.array(mask),dilate_kernel_size)
+        background = Image.fromarray(inpaint_img_with_lama(
+    np.array(image), mask, LAMA_CONFIG, LAMA_MODEL, device="cuda"))
+        return background
     #좌표의 위치에 대한 segmetation을 수행하는 함수
-    def segment_image(self,image:Image.Image,ßinput_bbox:np.array) -> Image.Image:
+    def segment_image(self,image:Image.Image,input_bbox:np.array) -> Image.Image:
         mask = self.segmentation.make_mask_with_bbox(image,input_bbox)
         return mask
 
