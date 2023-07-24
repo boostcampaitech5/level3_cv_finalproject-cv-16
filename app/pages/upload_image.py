@@ -14,8 +14,7 @@ st.header("최『AI』")
 img_file = st.sidebar.file_uploader(label='Upload a file', type=['png', 'jpg'])
 realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
 box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
-aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=[
-                                 "1:1"])
+aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=["1:1"])
 aspect_dict = {
     "1:1": (1, 1),
 }
@@ -65,7 +64,9 @@ if img_file:
     buffer = base64.b64encode(buffer)
 
     # select character
-    ver = ['최애의 아이','하울','명탐정 코난', '노진구']
+    ver = ['최애의 아이','하울','명탐정 코난', '노진구', '홍시(홍시는 널 좋아해!)', 
+            '단아(홍시는 널 좋아해!)', "이민지(프리드로우)", "한태성(프리드로우)", "공주영(연애혁명)", "왕자림(연애혁명)",
+            "메데이아(하루만 네가 되고 싶어)", "이아로스(하루만 네가 되고 싶어)"]
 
     form = st.form(key='email')
     selected = form.selectbox('그림체를 선택하세요', ver)

@@ -66,7 +66,7 @@ if __name__ == "__main__":
         # ------------------------model inference ----------------------------
         # Loading Lora
 
-        character,prompt,negative_prompt = Lora[ver]["character"],Lora[ver]["prompt"],Lora["negative_prompt"]
+        character,prompt,negative_prompt = Lora[ver]["character"],Lora[ver]["prompt"],Lora[ver]["negative_prompt"]
         lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint"
         model.load_lora(lora_path)
         
