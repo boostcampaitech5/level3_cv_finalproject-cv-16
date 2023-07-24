@@ -38,13 +38,13 @@ def service_example():
     before, mid, after, a, b, c = st.columns(6)
     
     with before:
-        st.image('images_video/main_cat.jpg', caption='Before', use_column_width=True)
+        st.image('image_video/main_cat.jpg', caption='Before', use_column_width=True)
         
     with mid:
-        st.image('images_video/mid.png', use_column_width=True)
+        st.image('image_video/mid.png', use_column_width=True)
         
     with after:
-        st.image('images_video/main_cat.jpg', caption='After', use_column_width=True)
+        st.image('image_video/main_cat.jpg', caption='After', use_column_width=True)
         
 def profile():
     st.text("")
@@ -89,8 +89,8 @@ st.set_page_config(
     layout='wide',
 )
 
-main_img = Image.open('images_video/main_cat.jpg')
-profile_img = Image.open('images_video/best_idol.jpg')
+main_img = Image.open('image_video/main_cat.jpg')
+profile_img = Image.open('image_video/best_idol.jpg')
 
 st.sidebar.info("Select a service above.")
 
