@@ -2,7 +2,7 @@ accelerate==0.21.0
 aiohttp==3.8.0
 aiohttp-cors==0.7.0
 aiosignal==1.2.0
-albumentations==1.1.0
+albumentations==0.5.2
 alembic==1.7.4
 altair==4.1.0
 antlr4-python3-runtime==4.9.3
@@ -61,6 +61,7 @@ huggingface-hub==0.16.4
 humanfriendly==10.0
 idna==3.4
 imageio==2.10.3
+imgaug==0.4.0
 importlib-metadata==6.8.0
 importlib-resources==6.0.0
 ipykernel==5.5.6
@@ -78,6 +79,7 @@ jupyter-core==4.9.1
 jupyterlab-pygments==0.1.2
 jupyterlab-widgets==1.0.2
 kiwisolver==1.3.1
+kornia==0.5.0
 lightning-utilities==0.9.0
 lit==16.0.6
 Mako==1.1.5
@@ -105,7 +107,8 @@ nvidia-cusparse-cu11==11.7.4.91
 nvidia-nccl-cu11==2.14.3
 nvidia-nvtx-cu11==11.7.91
 omegaconf==2.3.0
-opencv-python-headless==4.5.2.54
+opencv-python==4.8.0.74
+opencv-python-headless==4.8.0.74
 packaging==21.2
 pandas==1.1.5
 pandocfilters==1.5.0
@@ -153,6 +156,7 @@ scikit-learn==0.24.2
 scipy==1.5.4
 segment-anything==1.0
 Send2Trash==1.8.0
+shapely==2.0.1
 simple-di==0.1.2
 six==1.16.0
 smmap==5.0.0
