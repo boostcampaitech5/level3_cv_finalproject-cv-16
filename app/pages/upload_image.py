@@ -38,7 +38,7 @@ def check_size(img):
 
 if img_file:
     img = Image.open(img_file)
-    img = Image.convert('RGB')
+    img = img.convert('RGB')
 
     #이미지 size 가 1500 넘어갈 시 비율에 맞게 resize
     img = check_size(img)
