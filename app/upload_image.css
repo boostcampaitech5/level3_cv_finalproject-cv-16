@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'twaysky';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-style: normal;
+}
+
+.css-10trblm {
+    /* Main title */
+    font-family : 'twaysky';
+    text-align: left;
+}
+
+.css-1dp5vir{
+    /* line on top */
+    background-image : none ;
+    background-color : #f06292;
+}
+
+
+.css-vk3wp9{
+    /* side bar */
+    background-color: #fce4ec;
+}
+
+.css-nziaof{
+    /* chosen side bar */
+    background-color: #f8bbd0;
+}
+.css-taue2i.e1b2p2ww15{
+    /* upload button  */
+    background-color: #f8bbd0;
+}
+
+.css-13ejsyy.ef3psqc11{
+    /* upload - browse file button */
+    background-color: #E8E7E7;
+    color : #000000;
+}
+
+.css-content-new-font{
+    font-family: 'Pretendard-Regular';
+    font-weight: 400;
+}
+
+.css-title-new-font{
+    font-family: 'Pretendard-Regular';
+    font-weight: 900;
+
+}

@@ -25,7 +25,6 @@ class Img2ImgWithBboxPipeline():
         1번을 수행한다면 아래 2번과 3번 과정은 비동기로 작성해도 가능할 것 같다.
         추후 속도를 위해 개선할 예정!
         """
-    
         #2-1. 위에서 추출된 마스크 이외의 배경을 제거한 뒤, 이미지 변환
         segment_img = image_segmentation(image,mask)
 
