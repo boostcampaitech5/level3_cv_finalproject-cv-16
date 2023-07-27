@@ -1,10 +1,37 @@
 # 인물 『 애니메이션 』 화 프로젝트 
 
 ### 앗, 『이 세계』로부터의 손님이 내게 찾아왔다!?
-#### 여기 애니화된 사진이 있으면 좋을듯?
 
-<!-- <img src="https://img.shields.io/badge/Python-blue?style=flat&logo=Python&logoColor=white"/> <img src="https://img.shields.io/badge/Pytorch-orange?style=flat&logo=Pytorch&logoColor=white"/><br>
-<img src="https://img.shields.io/badge/Streamlit-darkred?style=flat&logo=Streamlit&logoColor=white"/> <img src="https://img.shields.io/badge/Redis-red?style=flat&logo=Redis&logoColor=white"/> -->
+<style>
+    .image-container {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0; /* 원하는 간격으로 조정 (예: 20px) */
+    }
+</style>
+
+<!-- 첫 번째 이미지 -->
+<div class="image-container">
+    <img src="" alt="Before1" width="300" />
+    <img src="" alt="Before2" width="300" />
+    <img src="" alt="Before3" width="300" />
+</div>
+
+<!-- 크게 만든 화살표 -->
+<div style="text-align: center;">
+    <span style="font-size: 24px; line-height: 1.5;">⇓</span>
+</div>
+
+<!-- 두 번째 이미지 -->
+<div class="image-container">
+    <img src="" alt="After1" width="300" />
+    <img src="" alt="After2" width="300" />
+    <img src="" alt="After3" width="300" />
+</div>
+
+
+
+
 
 ## Visits
 
@@ -16,7 +43,7 @@
 
 |                                                                           [김지현](https://github.com/codehyunn)                                                                           |                                                                           [박상필](https://github.com/SangphilPark)                                                                           |                                                                           [오동혁](https://github.com/97DongHyeokOH)                                                                           |                                                                           [이상민](https://github.com/dldltkdals)                                                                           |                                                                           [이태순](https://github.com/LTSGOD)                                                                           |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrscwx3lsb0twVlYNjri57vfLQ2R_c6ABDmA&usqp=CAU" alt="대체 텍스트" width="100" height="100"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrscwx3lsb0twVlYNjri57vfLQ2R_c6ABDmA&usqp=CAU" alt="대체 텍스트" width="100" height="100"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrscwx3lsb0twVlYNjri57vfLQ2R_c6ABDmA&usqp=CAU" alt="대체 텍스트" width="100" height="100"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrscwx3lsb0twVlYNjri57vfLQ2R_c6ABDmA&usqp=CAU" alt="대체 텍스트" width="100" height="100"> | <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrscwx3lsb0twVlYNjri57vfLQ2R_c6ABDmA&usqp=CAU" alt="대체 텍스트" width="100" height="100"> |
+| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrscwx3lsb0twVlYNjri57vfLQ2R_c6ABDmA&usqp=CAU" alt="대체 텍스트" width="100" height="100"> | <img src="./src/T5082.jpg" alt="대체 텍스트" width="100" height="100"> | <img src="./src/T5124.jpg" alt="대체 텍스트" width="100" height="100"> | <img src="./src/T5141.png" alt="대체 텍스트" width="100" height="100"> | <img src="./src/T5165.jpg" alt="대체 텍스트" width="100" height="100"> |
 | 모델 엔지니어링 및 학습  | 모델 엔지니어링 및 학습  | 서비스 파이프라인 구축 | 모델 파이프라인 구축 | 웹 서비스, 클라우드 구축 |
 
 ## Introduction
@@ -24,6 +51,7 @@
 ### 프로젝트 동기
 - 애니메이션과 웹툰 매니아 층은 정식으로 제공되는 컨텐츠를 넘어 부가적인 창작물을 소비
 - CV 분야의 생성 기술을 **애니메이션 및 웹툰**에 적용하여 **자신만의 콘텐츠 제작**을 돕고자 함
+- 전체적인 이미지를 변경해주는 기존 서비스들과 달리 **인물만 골라서 원하는 캐릭터로 변환**해주는 서비스 기획
 
 ### 기대효과
 - **애니메이션 및 웹툰 플랫폼**에서 활용 가능
@@ -31,24 +59,37 @@
 - **디지털 콘텐츠 창작 혁명**의 시작 기능
 
 ## Dataset
-- 네이버 웹툰 및 애니메이션 캐릭터 사진 데이터
+- (512, 512) 크기의 원하는 캐릭터 사진 8~10장
+- 준비된 데이터 셋으로 Pretrained된 모델에 학습을 진행하면 해당 캐릭터 스타일로 변환해주는 Fine-tuning된 모델이 만들어짐
 
 ## Model
 - Model Pipeline
 
-    ![모델 파이프라인](./src/Model%20Pipeline.png)
+    ![모델 파이프라인](./src/Model_Pipeline.png)
 
-- SAM - 인물 추출에 사용
+- Used Model
 
-    ![Segmentation Model](./src/SAM.png)
+    | ![Segmentation Model](./src/SAM.png) | ![Inpainting Model](./src/LAMA.png) | ![Stable Diffusion](./src/Stable%20diffusion.png) |
+    |:--------------------------:|:--------------------------:|:--------------------------:|
+    |       SAM                |       LAMA                |       Stable Diffusion                |
 
-- LAMA - 인물이 제거된 배경 생성에 사용
+- SAM 
+    - 인물 추출에 사용
+    - 사용자의 입력을 받아 원하는 객체만 segmentation
+    - 다른 segmentation 모델과 비교했을 때 성능이 좋음
 
-    ![Inpainting Model](./src/LAMA.png)
+- LAMA 
+    - 인물이 제거된 배경 생성에 사용
+    - 기존 stable diffusion의 inpaint 파이프라인을 사용하면 신체 일부분을 놓치는 점을 확인
+    - 인물과 배경을 분리해 캐릭터를 생성하고 배경의 인물 영역을 inpainting하고 캐릭터를 넣어줌 
+    - LAMA 사용 전/후
 
-- Stable Diffusion - 캐릭터 생성에 사용
+        ![Why LAMA](./src/why_LAMA.png)
 
-    ![Stable Diffusion](./src/Stable%20diffusion.png)
+- Stable Diffusion
+    - 캐릭터 생성에 사용
+    - 쉽고 빠른 학습 -> DreamBooth를 통해 10장 이하의 사진과 한 시간 이내의 시간으로도 스타일 학습이 가능
+    - 좋은 캐릭터화 성능
 
 
 ## Product Serving
@@ -60,5 +101,6 @@
 
 ## Future Works
 - 모델 경량화를 통한 서비스 시간 단축
-- 사용자가 원하는 그림체 자동 학습 파이프라인 구축
-- 사용자 편의에 맞게 UI/UX 개선
+- 고품질 서비스 배포를 위한 Super Resolution 과정 추가
+- 사용자가 원하는 캐릭터 자동 학습 기능 구축
+- 카카오톡 등의 SNS를 통한 결과 공유 기능 추가
