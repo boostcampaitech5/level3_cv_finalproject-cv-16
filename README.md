@@ -3,58 +3,37 @@
 ### 앗, 『이 세계』로부터의 손님이 내게 찾아왔다!?
 
 <style>
-    .image-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px; /* 이미지 사이의 간격 조정 (예: 20px) */
-    }
-    .image-container img {
-        width: 100%;
-        max-width: 300px;
-        flex-grow: 1; /* 이미지의 너비를 꽉 차게 설정 */
-    }
-    .arrow-container {
-        font-size: 24px;
-    }
-    @media (min-width: 768px) {
-        .image-container {
-            flex-direction: row;
-            margin-bottom: 0; /* 데스크탑 화면에서는 간격이 필요없으므로 0으로 설정 */
-        }
-        .image-container:not(:last-child) {
-            margin-right: 20px; /* 데스크탑 화면에서 이미지 사이의 간격 조정 (예: 20px) */
-        }
-    }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 20px; /* 이미지와 화살표 사이 간격 조절 */
+  }
+  .image-container svg {
+    width: 60px; /* 화살표 크기 조절 */
+    height: 30px;
+  }
 </style>
 
-<!-- 첫 번째 이미지와 화살표 -->
-<div class="image-container">
-    <img src="./src/T5082.jpg" alt="Image1" />
-    <div class="arrow-container">
-        <span>⇒</span>
-    </div>
-    <img src="./src/T5082.jpg" alt="Image1" />
+<div class="container">
+  <div class="image-container">
+    <img src="./src/T5082.jpg" alt="Image 1">
+    <svg viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 15L60 15M60 15L45 0M60 15L45 30" stroke="black" stroke-width="3"/>
+    </svg>
+    <img src="./src/T5082.jpg" alt="Image 2">
+  </div>
 </div>
-
-<!-- 두 번째 이미지와 화살표 -->
-<div class="image-container">
-    <img src="./src/T5082.jpg" alt="Image2" />
-    <div class="arrow-container">
-        <span>⇒</span>
-    </div>
-    <img src="./src/T5082.jpg" alt="Image2" />
-</div>
-
-<!-- 세 번째 이미지와 화살표 -->
-<div class="image-container">
-    <img src="./src/T5082.jpg" alt="Image3" />
-    <div class="arrow-container">
-        <span>⇒</span>
-    </div>
-    <img src="./src/T5082.jpg" alt="Image3" />
-</div>
-
 
 ## Visits
 
