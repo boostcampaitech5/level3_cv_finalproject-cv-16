@@ -68,7 +68,6 @@
     | LAMA 사용 전 | LAMA 사용 후 |
     |--------------|--------------|
     | ![사용 전](./src/before_lama.png) | ![사용 후](./src/after_lama.png) |
-    | LAMA를 사용 전 | LAMA를 사용 후 |
 
     </center>
 
