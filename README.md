@@ -17,6 +17,7 @@
   .image-container img {
     max-width: 100%;
     height: auto;
+    max-height: 150px; /* 이미지의 최대 높이를 설정 (필요시 조절) */
     margin-right: 20px; /* 이미지와 화살표 사이 간격 조절 */
   }
   .image-container svg {
