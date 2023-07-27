@@ -2,77 +2,16 @@
 
 ### 앗, 『이 세계』로부터의 손님이 내게 찾아왔다!?
 
-<style>
-  .container {
-    max-width: 600px; /* 원하는 최대 너비를 설정 (필요시 조절) */
-    margin: 0 auto; /* 가운데 정렬을 위해 추가 */
-  }
-  .table {
-    display: table;
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-  }
-  .table-row {
-    display: table-row;
-  }
-  .table-cell {
-    display: table-cell;
-    padding: 10px; /* 셀 안의 여백 설정 */
-  }
-  .image {
-    max-width: 100px; /* 이미지의 최대 너비를 설정 (필요시 조절) */
-    height: auto;
-  }
-  .arrow {
-    width: 60px; /* 화살표 크기 조절 */
-    height: 30px;
-  }
-</style>
+<center>
 
-<div class="container">
-  <div class="table">
-    <div class="table-row">
-      <div class="table-cell">
-        <img class="image" src="./src/T5082.jpg" alt="Image 1">
-      </div>
-      <div class="table-cell">
-        <svg class="arrow" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 15L60 15M60 15L45 0M60 15L45 30" stroke="black" stroke-width="3"/>
-        </svg>
-      </div>
-      <div class="table-cell">
-        <img class="image" src="./src/T5082.jpg" alt="Image 2">
-      </div>
-    </div>
-    <div class="table-row">
-      <div class="table-cell">
-        <img class="image" src="./src/T5082.jpg" alt="Image 3">
-      </div>
-      <div class="table-cell">
-        <svg class="arrow" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 15L60 15M60 15L45 0M60 15L45 30" stroke="black" stroke-width="3"/>
-        </svg>
-      </div>
-      <div class="table-cell">
-        <img class="image" src="./src/T5082.jpg" alt="Image 4">
-      </div>
-    </div>
-    <div class="table-row">
-      <div class="table-cell">
-        <img class="image" src="./src/T5082.jpg" alt="Image 5">
-      </div>
-      <div class="table-cell">
-        <svg class="arrow" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0 15L60 15M60 15L45 0M60 15L45 30" stroke="black" stroke-width="3"/>
-        </svg>
-      </div>
-      <div class="table-cell">
-        <img class="image" src="./src/T5082.jpg" alt="Image 6">
-      </div>
-    </div>
-  </div>
-</div>
+| Before | → | After |
+|--------|---|-------|
+| ![Before](./src/T5082.jpg) | → | ![After](./src/T5082.jpg) |
+| ![Before](./src/T5082.jpg) | → | ![After](./src/T5082.jpg) |
+| ![Before](./src/T5082.jpg) | → | ![After](./src/T5082.jpg) |
+
+</center>
+
 
 
 
