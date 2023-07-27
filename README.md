@@ -12,9 +12,9 @@
 
 <!-- 첫 번째 이미지 -->
 <div class="image-container">
-    <img src="" alt="Before1" width="300" />
-    <img src="" alt="Before2" width="300" />
-    <img src="" alt="Before3" width="300" />
+    <img src="./src/T5082.jpg" alt="Before1" width="300" />
+    <img src="./src/T5124.jpg" alt="Before2" width="300" />
+    <img src="./src/T5141.png" alt="Before3" width="300" />
 </div>
 
 <!-- 크게 만든 화살표 -->
@@ -24,9 +24,9 @@
 
 <!-- 두 번째 이미지 -->
 <div class="image-container">
-    <img src="" alt="After1" width="300" />
-    <img src="" alt="After2" width="300" />
-    <img src="" alt="After3" width="300" />
+    <img src="./src/T5082.jpg" alt="After1" width="300" />
+    <img src="./src/T5124.jpg" alt="After2" width="300" />
+    <img src="./src/T5141.png" alt="After3" width="300" />
 </div>
 
 
