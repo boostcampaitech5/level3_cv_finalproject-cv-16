@@ -7,34 +7,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 600px; /* 원하는 최대 너비를 설정 (필요시 조절) */
+    margin: 0 auto; /* 가운데 정렬을 위해 추가 */
   }
-  .image-container {
-    flex: 1;
+  .arrow-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
   }
-  .image-container img {
-    max-width: 100%;
-    height: auto;
-    max-height: 150px; /* 이미지의 최대 높이를 설정 (필요시 조절) */
-    margin-right: 20px; /* 이미지와 화살표 사이 간격 조절 */
-  }
-  .image-container svg {
+  .arrow {
     width: 60px; /* 화살표 크기 조절 */
     height: 30px;
+  }
+  .arrow:not(:first-child) {
+    margin: 0 20px; /* 화살표 사이 간격 조절 */
+  }
+  .image {
+    max-width: 100px; /* 이미지의 최대 너비를 설정 (필요시 조절) */
+    height: auto;
   }
 </style>
 
 <div class="container">
-  <div class="image-container">
-    <img src="./src/T5082.jpg" alt="Image 1">
-    <svg viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <img class="image" src="./src/T5082.jpg" alt="Image 1">
+  <div class="arrow-container">
+    <svg class="arrow" viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0 15L60 15M60 15L45 0M60 15L45 30" stroke="black" stroke-width="3"/>
     </svg>
-    <img src="./src/T5082.jpg" alt="Image 2">
   </div>
+  <img class="image" src="./src/T5082.jpg" alt="Image 2">
 </div>
+
 
 ## Visits
 
