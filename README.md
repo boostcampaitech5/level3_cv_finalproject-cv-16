@@ -8,13 +8,17 @@
         justify-content: space-between;
         margin: 20px 0; /* 원하는 간격으로 조정 (예: 20px) */
     }
+    .image-container img {
+        width: 30%; /* 이미지의 너비를 30%로 설정 */
+        max-width: 300px; /* 최대 너비를 300px로 설정하여 이미지 크기를 고정 */
+    }
 </style>
 
 <!-- 첫 번째 이미지 -->
 <div class="image-container">
-    <img src="./src/T5082.jpg" alt="Before1" width="300" />
-    <img src="./src/T5124.jpg" alt="Before2" width="300" />
-    <img src="./src/T5141.png" alt="Before3" width="300" />
+    <img src="./src/T5082.jpg" alt="Before1" />
+    <img src="./src/T5124.jpg" alt="Before2" />
+    <img src="./src/T5141.png" alt="Before3" />
 </div>
 
 <!-- 크게 만든 화살표 -->
@@ -24,12 +28,10 @@
 
 <!-- 두 번째 이미지 -->
 <div class="image-container">
-    <img src="./src/T5082.jpg" alt="After1" width="300" />
-    <img src="./src/T5124.jpg" alt="After2" width="300" />
-    <img src="./src/T5141.png" alt="After3" width="300" />
+    <img src="./src/T5082.jpg" alt="After1" />
+    <img src="./src/T5124.jpg" alt="After2" />
+    <img src="./src/T5141.png" alt="After3" />
 </div>
-
-
 
 
 
