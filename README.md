@@ -2,38 +2,15 @@
 
 ### 앗, 『이 세계』로부터의 손님이 내게 찾아왔다!?
 
-<style>
-    .image-container {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0; /* 원하는 간격으로 조정 (예: 20px) */
-    }
-    .image-container img {
-        width: 30%; /* 이미지의 너비를 30%로 설정 */
-        max-width: 300px; /* 최대 너비를 300px로 설정하여 이미지 크기를 고정 */
-    }
-</style>
+<center>
 
-<!-- 첫 번째 이미지 -->
-<div class="image-container">
-    <img src="./src/T5082.jpg" alt="Before1" />
-    <img src="./src/T5124.jpg" alt="Before2" />
-    <img src="./src/T5141.png" alt="Before3" />
-</div>
+| Before | → | After |
+|--------|---|-------|
+| ![Before](./src/cat1.jpg) | → | ![After](./src/cat1.jpg) |
+| ![Before](./src/cat2.jpg) | → | ![After](./src/cat2.jpg) |
+| ![Before](./src/cat3.jpg) | → | ![After](./src/cat3.jpg) |
 
-<!-- 크게 만든 화살표 -->
-<div style="text-align: center;">
-    <span style="font-size: 24px; line-height: 1.5;">⇓</span>
-</div>
-
-<!-- 두 번째 이미지 -->
-<div class="image-container">
-    <img src="./src/T5082.jpg" alt="After1" />
-    <img src="./src/T5124.jpg" alt="After2" />
-    <img src="./src/T5141.png" alt="After3" />
-</div>
-
-
+</center>
 
 ## Visits
 
@@ -86,7 +63,14 @@
     - 인물과 배경을 분리해 캐릭터를 생성하고 배경의 인물 영역을 inpainting하고 캐릭터를 넣어줌 
     - LAMA 사용 전/후
 
-        ![Why LAMA](./src/why_LAMA.png)
+    <center>
+
+    | LAMA 사용 전 | LAMA 사용 후 |
+    |--------------|--------------|
+    | ![사용 전](./src/before_lama.png) | ![사용 후](./src/after_lama.png) |
+
+    </center>
+
 
 - Stable Diffusion
     - 캐릭터 생성에 사용
