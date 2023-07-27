@@ -5,34 +5,55 @@
 <style>
     .image-container {
         display: flex;
-        justify-content: space-between;
-        margin: 20px 0; /* 원하는 간격으로 조정 (예: 20px) */
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px; /* 이미지 사이의 간격 조정 (예: 20px) */
     }
     .image-container img {
-        width: 30%; /* 이미지의 너비를 30%로 설정 */
-        max-width: 300px; /* 최대 너비를 300px로 설정하여 이미지 크기를 고정 */
+        width: 100%;
+        max-width: 300px;
+        flex-grow: 1; /* 이미지의 너비를 꽉 차게 설정 */
+    }
+    .arrow-container {
+        font-size: 24px;
+    }
+    @media (min-width: 768px) {
+        .image-container {
+            flex-direction: row;
+            margin-bottom: 0; /* 데스크탑 화면에서는 간격이 필요없으므로 0으로 설정 */
+        }
+        .image-container:not(:last-child) {
+            margin-right: 20px; /* 데스크탑 화면에서 이미지 사이의 간격 조정 (예: 20px) */
+        }
     }
 </style>
 
-<!-- 첫 번째 이미지 -->
+<!-- 첫 번째 이미지와 화살표 -->
 <div class="image-container">
-    <img src="./src/T5082.jpg" alt="Before1" />
-    <img src="./src/T5124.jpg" alt="Before2" />
-    <img src="./src/T5141.png" alt="Before3" />
+    <img src="./src/T5082.jpg" alt="Image1" />
+    <div class="arrow-container">
+        <span>⇒</span>
+    </div>
+    <img src="./src/T5082.jpg" alt="Image1" />
 </div>
 
-<!-- 크게 만든 화살표 -->
-<div style="text-align: center;">
-    <span style="font-size: 24px; line-height: 1.5;">⇓</span>
-</div>
-
-<!-- 두 번째 이미지 -->
+<!-- 두 번째 이미지와 화살표 -->
 <div class="image-container">
-    <img src="./src/T5082.jpg" alt="After1" />
-    <img src="./src/T5124.jpg" alt="After2" />
-    <img src="./src/T5141.png" alt="After3" />
+    <img src="./src/T5082.jpg" alt="Image2" />
+    <div class="arrow-container">
+        <span>⇒</span>
+    </div>
+    <img src="./src/T5082.jpg" alt="Image2" />
 </div>
 
+<!-- 세 번째 이미지와 화살표 -->
+<div class="image-container">
+    <img src="./src/T5082.jpg" alt="Image3" />
+    <div class="arrow-container">
+        <span>⇒</span>
+    </div>
+    <img src="./src/T5082.jpg" alt="Image3" />
+</div>
 
 
 ## Visits
