@@ -63,7 +63,15 @@
     - 인물과 배경을 분리해 캐릭터를 생성하고 배경의 인물 영역을 inpainting하고 캐릭터를 넣어줌 
     - LAMA 사용 전/후
 
-        ![Why LAMA](./src/why_LAMA.png)
+    <center>
+
+    | LAMA 사용 전 | LAMA 사용 후 |
+    |--------------|--------------|
+    | ![사용 전](./src/before_lama.png) | ![사용 후](./src/after_lama.png) |
+    | LAMA를 사용 전 | LAMA를 사용 후 |
+
+    </center>
+
 
 - Stable Diffusion
     - 캐릭터 생성에 사용
