@@ -49,7 +49,7 @@ class Img2ImgWithBboxPipeline():
 
         crop_mask = self.segmentation.make_mask_with_bbox(target_image, bbox)
         # SAM에서 마스크의 테두리 부분이 잘 Seg 되지 않는 현상 때문에 미세하게 crop 진행
-        crop_mask = crop_mask.crop((2,2,x-2,y-2))
+        crop_mask = crop_mask.crop((4,4,x-4,y-4))
 
         # 마스크 반전
         crop_mask = ImageChops.invert(crop_mask)

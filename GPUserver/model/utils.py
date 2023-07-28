@@ -50,7 +50,7 @@ def check_size(img):
 def mask_composit(image:Image.Image,crop_img:Image.Image,input_bbox:np.array)->Image.Image:
     x,y = image.size
     board = np.zeros((y,x),dtype=bool)
-    board[input_bbox[1]+2:input_bbox[3]-2, input_bbox[0]+2:input_bbox[2]-2] = np.array(crop_img)
+    board[input_bbox[1]+4:input_bbox[3]-4, input_bbox[0]+4:input_bbox[2]-4] = np.array(crop_img)
 
     board = Image.fromarray(board)
     return board
