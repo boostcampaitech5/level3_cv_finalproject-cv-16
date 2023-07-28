@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-with open('frontend.css') as f :
+with open('main.css') as f :
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
 def new_font_tag(text, mode) :
@@ -49,13 +49,13 @@ def service_example():
     before, mid, after, a, b, c = st.columns(6)
     
     with before:
-        st.image('image_video/main_cat.jpg', caption='Before', use_column_width=True)
+        st.image('image_video/streamlit_before.jpg', caption='Before', use_column_width=True)
         
     with mid:
         st.image('image_video/mid.png', use_column_width=True)
         
     with after:
-        st.image('image_video/main_cat.jpg', caption='After', use_column_width=True)
+        st.image('image_video/streamlit_after.jpg', caption='After', use_column_width=True)
         
 def profile():
     st.text("")
