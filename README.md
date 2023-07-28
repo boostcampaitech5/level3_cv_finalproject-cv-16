@@ -6,8 +6,8 @@
 
 | Before | → | After |
 |--------|---|-------|
-| ![Before](./src/cat1.jpg) | → | ![After](./src/cat1.jpg) |
-| ![Before](./src/cat2.jpg) | → | ![After](./src/cat2.jpg) |
+| ![Before](./src/before1.jpg) | → | ![After](./src/after1.jpg) |
+| ![Before](./src/before2.jpg) | → | ![After](./src/after2.jpg) |
 | ![Before](./src/cat3.jpg) | → | ![After](./src/cat3.jpg) |
 
 </center>

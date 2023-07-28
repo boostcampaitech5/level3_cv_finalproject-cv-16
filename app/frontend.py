@@ -99,7 +99,7 @@ def profile():
 
 main_img = Image.open('image_video/main_cat.jpg')
 
-t5065_profile_img = Image.open('image_video/best_idol.jpg')
+t5065_profile_img = Image.open('image_video/T5065.jpg')
 t5082_profile_img = Image.open('image_video/T5082.jpg')
 t5124_profile_img = Image.open('image_video/T5124.jpg')
 t5141_profile_img = Image.open('image_video/T5141.png')
