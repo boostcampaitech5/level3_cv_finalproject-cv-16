@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-with open('main.css') as f :
+with open('frontend.css') as f :
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
 def new_font_tag(text, mode) :
