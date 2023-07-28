@@ -55,7 +55,7 @@ class Img2ImgWithBboxPipeline():
         crop_mask = ImageChops.invert(crop_mask)
 
         #5. 애니 생성 후 원본 이미지 크기의 마스크 만들기
-        after_mask = mask_composit(image=image,crop_mask=crop_mask, input_bbox=input_bbox)
+        after_mask = mask_composit(image=image,crop_img=crop_mask, input_bbox=input_bbox)
 
         #6. 위에서 추출된 마스크 이외의 배경 제거
         after_segment_img = mask_composit2(image, target_image, input_bbox)
