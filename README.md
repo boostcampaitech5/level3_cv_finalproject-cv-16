@@ -8,7 +8,7 @@
 |--------|---|-------|
 | ![Before](./src/before1.jpg) | → | ![After](./src/after1.jpg) |
 | ![Before](./src/before2.jpg) | → | ![After](./src/after2.jpg) |
-| ![Before](./src/cat3.jpg) | → | ![After](./src/cat3.jpg) |
+| ![Before](./src/before3.png) | → | ![After](./src/after3.jpg) |
 
 </center>
 
@@ -54,8 +54,8 @@
 
 - SAM 
     - 인물 추출에 사용
-    - 사용자의 입력을 받아 원하는 객체만 segmentation
     - 다른 segmentation 모델과 비교했을 때 성능이 좋음
+    - 여러 물체가 존재하는 사진에서 사용자의 입력을 받아 원하는 객체만 segmentation
 
 - LAMA 
     - 인물이 제거된 배경 생성에 사용
