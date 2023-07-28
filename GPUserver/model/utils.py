@@ -37,3 +37,28 @@ def combine_image(background:Image.Image,image:Image.Image) -> Image.Image:
     result_np = background+image
     result_pil = Image.fromarray(result_np)
     return result_pil
+
+def check_size(img):
+    w,h = img.size
+    tmp = w if w > h else h
+    standard = 950
+
+    ratio = standard / tmp
+    img = img.resize((int(w * ratio), int(h * ratio)),Image.ANTIALIAS)
+    return img
+
+def mask_composit(image:Image.Image,crop_img:Image.Image,input_bbox:np.array)->Image.Image:
+    x,y = image.size
+    board = np.zeros((y,x),dtype=bool)
+    board[input_bbox[1]+2:input_bbox[3]-2, input_bbox[0]+2:input_bbox[2]-2] = np.array(crop_img)
+
+    board = Image.fromarray(board)
+    return board
+
+def mask_composit2(image:Image.Image,orig_img:Image.Image,input_bbox:np.array)->Image.Image:
+    x,y = image.size
+    board = np.zeros((y,x,3),dtype=np.uint8)
+    board[input_bbox[1]:input_bbox[3], input_bbox[0]:input_bbox[2]] = np.array(orig_img)
+    board = Image.fromarray(board)
+
+    return board
