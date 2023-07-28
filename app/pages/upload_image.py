@@ -7,20 +7,27 @@ import json
 import io
 import re
 
+with open('upload_image.css') as f :
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
 # Upload an image and set some options for demo purposes
-st.header("최『AI』")
-img_file = st.sidebar.file_uploader(label='Upload a file', type=['png', 'jpg'])
+st.header("♥ 『이 세계』로부터 온 손님 보러가기 ♥")
+img_file = st.sidebar.file_uploader(label='▶ 변환하고 싶은 파일을 올려주세요 ʕت̫͡ʔ', type=['png', 'jpg'])
 realtime_update = st.sidebar.checkbox(label="Update in Real Time", value=True)
-box_color = st.sidebar.color_picker(label="Box Color", value='#0000FF')
+box_color = st.sidebar.color_picker(label="Box Color", value='#FF001A')
 aspect_choice = st.sidebar.radio(label="Aspect Ratio", options=["1:1"])
-aspect_dict = {
-    "1:1": (1, 1),
-}
+aspect_dict = {"1:1": (1, 1)}
 aspect_ratio = aspect_dict[aspect_choice]
 
-
+def new_font_tag(text, mode) :
+    if mode == 'title' :
+        font = f"<p class='css-title-new-font'>{text}</p>"
+    elif mode == 'content' :
+        font = f"<p class='css-content-new-font'>{text}</p>" 
+    st.markdown(font, unsafe_allow_html=True)
+    
 def box_algorithm(img_file: Image, aspect_ratio: tuple = None) -> dict:
     box = (0, 0, 512, 512)
     height = 512
@@ -37,7 +44,10 @@ def check_size(img):
     return img
 
 if img_file:
+    new_font_tag("▼ 변환하고 싶은 인물에 최대한 가깝게 박스를 조절해주세요!", 'content')
+    
     img = Image.open(img_file)
+    img = img.convert('RGB')
 
     #이미지 size 가 1500 넘어갈 시 비율에 맞게 resize
     img = check_size(img)
@@ -53,7 +63,7 @@ if img_file:
         (rect['left'], rect['top'], rect['width'] + rect['left'], rect['height'] + rect['top']))
 
     # Manipulate cropped image at will
-    st.write("Preview")
+    new_font_tag("▼ 아래 사진에서 박스가 잘 지정됐는지 확인해보세요!", 'content')
     _ = cropped_img.thumbnail((512, 512))
     st.image(cropped_img)
 
@@ -69,7 +79,7 @@ if img_file:
             "메데이아(하루만 네가 되고 싶어)", "이아로스(하루만 네가 되고 싶어)"]
 
     form = st.form(key='email')
-    selected = form.selectbox('그림체를 선택하세요', ver)
+    selected = form.selectbox('변환하고 싶은 인물을 선택해주세요.', ver)
     email = form.text_input('결과를 받을 이메일을 입력해주세요.')
     submit = form.form_submit_button('제출')
 
@@ -81,8 +91,9 @@ if img_file:
                      "bbox": rect, "ver": selected}
             response = requests.post(
                 "http://127.0.0.1:8001/submit", data=json.dumps(files))
-            st.write(f'10분내에 {email}로 결과가 전송됩니다.')
+            new_font_tag(f'10분 내에 {email}로 이 세계에서 온 손님이 찾아갑니다 ʕت̫͡ʔ', 'content')
         else:
-            st.write("유효한 메일 주소를 입력하세요.")
+            new_font_tag("유효한 메일 주소를 입력해주세요.", 'content')
+
     else:
-        st.write('제출 버튼을 눌러 애니메이션 변환 이미지를 받아보세요.')
+        new_font_tag("제출 버튼을 눌러 이 세계에서 온 손님을 만나보세요 ʕت̫͡ʔ", 'content')
