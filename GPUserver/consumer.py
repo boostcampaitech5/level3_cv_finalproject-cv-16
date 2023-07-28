@@ -27,7 +27,7 @@ if __name__ == "__main__":
     os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = key["GOOGLE_APPLICATION_CREDENTIALS"]
     with open("model/weights/diffusion/Lora/prompt.json") as Lora:
         Lora= json.load(Lora)
-    model = Img2ImgWithBboxPipeline()
+    # model = Img2ImgWithBboxPipeline()
     
     # message get
     while(True):
@@ -68,10 +68,10 @@ if __name__ == "__main__":
 
         character,prompt,negative_prompt = Lora[ver]["character"],Lora[ver]["prompt"],Lora[ver]["negative_prompt"]
         lora_path = f"model/weights/diffusion/Lora/{character}/checkpoint"
-        model.load_lora(lora_path)
+        # model.load_lora(lora_path)
         
-        result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt,negative_prompt = negative_prompt,inference_steps=140,strength=0.55)
-        
+        # result = model.pipe(image=img,input_bbox=input_bbox,prompt=prompt,negative_prompt = negative_prompt,inference_steps=140,strength=0.55)
+        # result.save("inference.jpg")
         # Bentoml
         # model 변경점은 이 코드 위에서 수정해주세요
         # bento_service = Transform_Anime()
@@ -80,4 +80,4 @@ if __name__ == "__main__":
         # result = bento_service.transform(image=img,input_bbox=input_bbox,prompt=prompt)
         # ------------------------model inference ----------------------------
 
-        send_email(email, result)
+        # send_email(email, result)
