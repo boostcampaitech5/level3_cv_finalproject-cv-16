@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'twaysky';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.css-10trblm {
+    font-family : 'twaysky';
+}
+
+.css-10trblm {
+    /* Main title */
+    font-family : 'twaysky';
+    text-align: left;
+}
+
+.css-1dp5vir{
+    /* line on top */
+    background-image : none ;
+    background-color : #f06292;
+}
+
+
+.css-vk3wp9{
+    /* side bar */
+    background-color: #fce4ec;
+}
+
+.css-nziaof{
+    /* chosen side bar */
+    background-color: #f8bbd0;
+}
