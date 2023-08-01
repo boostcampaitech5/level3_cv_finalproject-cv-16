@@ -83,7 +83,7 @@
 
 ## Demo
 
-![Demo](https://github.com/boostcampaitech5/level3_cv_finalproject-cv-16/assets/64296314/baa60c7a-605f-463f-b1fe-dd782670242f)
+![Demo](./src/demo.gif)
 
 ## Future Works
 - 모델 경량화를 통한 서비스 시간 단축
