@@ -96,3 +96,10 @@ if img_file:
 
     else:
         new_font_tag("제출 버튼을 눌러 이 세계에서 온 손님을 만나보세요 ʕت̫͡ʔ", 'content')
+else:
+    st.subheader('Guideline')
+    st.write("바운딩 박스 지정시 <font color='blue'>사람 전체</font>가 선택될 수 있도록 지정해주세요!!!", unsafe_allow_html=True)
+    
+    st.image('../image_video/o.png', caption="옳은 예시", use_column_width=True)
+    
+    st.image('../image_video/x.jpg', caption="잘못된 예시", use_column_width=True)
